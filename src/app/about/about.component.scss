@@ -1,0 +1,18 @@
+.about{
+    background: #fff;
+    padding: 2rem;
+    line-height: 2;
+    min-height: 95vh;
+
+   
+    p{
+        margin-bottom: 1rem;
+    }
+
+    
+}
+.skills{
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}

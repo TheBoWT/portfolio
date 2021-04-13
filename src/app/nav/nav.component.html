@@ -1,0 +1,60 @@
+<div class="small-nav" (window:resize)="onResize($event)">
+    <button class="small-nav__toggler" (click)="navToggler()">
+       <i *ngIf="opened" class="fa fa-bars small-nav__icon" aria-hidden="true"></i>
+       <i *ngIf="closed" class="fa fa-times small-nav__icon" aria-hidden="true"></i>
+    </button> 
+    <span>Abdi Ahmed &lt;Web Developer/&gt;</span>
+</div>
+<header class="header" *ngIf="!opened">
+    <div class="profile">
+        <img src="assets/me3.jpg" alt="" class="profile__photo">
+        <h1 class="profile__name">Abdi Ahmed</h1>
+        <h4 class="profile__title">Front End Web Developer</h4>
+
+        
+         <button class="profile__resume">
+            Download Resume
+        </button>
+        
+    </div>
+
+   
+
+    <ul class="nav">
+        <li class="nav__item"><a routerLink="about" (click)="navToggler()" routerLinkActive="active" class="nav__link">About</a></li>
+        <li class="nav__item"><a routerLink="projects" (click)="navToggler()" routerLinkActive="active"  class="nav__link" routerLinkActive="active">Projects</a></li>
+        <li class="nav__item"><a routerLink="contact" (click)="navToggler()"routerLinkActive="active" class="nav__link">Contact</a></li>
+    </ul>
+
+    <div class="social">
+        <div class="at">
+            <span></span>
+            <b>@</b>
+            <span></span>
+        </div>
+        <ul class="social__box">
+            <li class="social__icon">
+                <i class="fa fa-linkedin" aria-hidden="true"></i>
+                <i class="fa fa-linkedin" aria-hidden="true"></i>
+            </li>
+            <li class="social__icon">
+                <i class="fa fa-git" aria-hidden="true"></i>
+                <i class="fa fa-git" aria-hidden="true"></i>  
+            </li>
+            <li class="social__icon">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <i class="fa fa-envelope" aria-hidden="true"
+                (click)="onNavigate('contact')"></i> 
+            </li>
+            <li class="social__icon sm-download">
+                <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+                <i class="fa fa-download" aria-hidden="true"
+                onclick="downloadResume()"></i>
+            </li>
+        </ul>
+    </div>
+
+    <div class="copyright">
+        &copy;Abdisamed
+    </div>
+</header>

@@ -1,0 +1,122 @@
+.contact{
+    min-height: 90vh;
+    display: grid;
+    grid-template-columns: minmax(30rem, 40rem);
+    justify-content: center;
+    align-content: center;
+
+    @media screen and (max-width: 885px) {
+        display: block;
+        min-height: auto;
+        margin-top: 4rem;
+        min-height: 90vh;
+   }
+
+    @media screen and (max-width: 520px) {
+        display: block;
+        width: 100%;
+        margin-bottom: 5rem;
+        padding: 0;
+        min-height: auto;
+   }
+
+}
+.form{
+    padding: 0 1rem;
+    &__label{
+        font-family: sans-serif;
+        display: inline-block;
+        color: brown;
+        transform: translateY(-5rem);
+        margin-left: .5rem;
+    }
+  
+ &__input, &__textarea, &__btn{
+    width: 100%;
+ }
+
+ &__input:placeholder-shown + &__label{
+    visibility: hidden;
+ }
+ &__input{  
+     padding: .7rem;
+     border: none;
+     border-bottom: transparent 2px solid;
+     margin-bottom: 1rem;
+
+     @media screen and (max-width: 885px) { 
+           margin-bottom: .2rem;
+    }
+
+     &:focus{
+         outline: 0;
+         
+     }
+     &:focus .form__label{
+         display: block;
+     }
+
+     &::-webkit-input-placeholder,
+     &::-webkit-textarea-placeholder{
+         color: brown;
+         text-transform: uppercase;
+     }
+     
+ }
+&__textarea{
+    padding: .7rem;
+    border: none;
+    margin-top: 1rem;
+    border-bottom: lightskyblue 2px solid;
+    margin-bottom: 1rem;
+    font-family: inherit;
+    transition: all ease 1s;
+
+    &:focus{
+        outline: 0;
+    }
+}
+ &__btn{
+     font-size: 1.1rem;
+     display: block;
+     padding: 1rem;
+     border: none;
+     background-color: brown;
+     color: #fff;
+     cursor: pointer;
+
+
+     &:disabled{
+         background-color: rgb(182, 41, 41);
+         cursor: not-allowed;
+     }
+ }
+
+
+}
+
+
+input.ng-invalid.ng-touched{
+    border-bottom: red 2px solid;
+}
+
+input.ng-valid{
+    border-bottom: limegreen 2px solid;
+}
+textarea.ng-invalid.ng-touched {
+    border-bottom: red 2px solid;
+}
+textarea.ng-valid {
+    border-bottom: limegreen 2px solid;
+}
+
+textarea::placeholder {
+    color: brown;  
+    text-transform: uppercase;
+  }
+  
+
+
+  .failed{
+      color: red;
+  }

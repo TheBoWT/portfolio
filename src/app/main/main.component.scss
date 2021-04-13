@@ -1,0 +1,11 @@
+:host{
+    margin-left: 1rem;
+    min-height: 95vh;
+    @media screen and (max-width: 885px) {
+        margin-left: 0;
+   }
+   @media screen and (max-width: 520px) {
+    min-height: auto;
+}
+
+}

@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~font-awesome/css/font-awesome.min.css";
+
+*,*::after, *::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+}
+body{
+    margin: .5rem;
+    background-color: lightskyblue;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+    @media screen and (max-width:520px){
+        margin: 0;
+        padding: 0;
+    }
+   
+}
