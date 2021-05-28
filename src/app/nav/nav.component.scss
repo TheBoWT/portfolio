@@ -1,33 +1,17 @@
-:host {  
-    background-color: rgba(165, 42, 42, 0.787);
-    padding: .5rem;
-    color: #fff; 
-    min-height: 95vh;
-    position: relative;
-
-    @media screen and (max-width:885px){
-        min-height: auto;
-    }
-    @media screen and (max-width:520px){
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        
-    }
-}
-
+ :host{
+     background-color: transparent;
+ }
+ 
  .small-nav{
     padding: .5rem;
     background-color: brown;
+    color: #fff;
     display: none;
     @media only screen and (max-width:520px){
-        display: block;
-        position: sticky;
-        top: 0;
-        
         margin-bottom: .1rem;
         display: flex;
         align-items: center;
+        justify-content: space-between;
         
     }
     &__toggler{
@@ -35,7 +19,6 @@
         background-color: transparent;
         cursor: pointer;
         color: #fff;
-        margin-right: auto;
 
         &:focus{
             outline: 0;
@@ -48,22 +31,22 @@
 }
 
 .header{
-    height: 100%;
+    background-color: rgba(165, 42, 42, 0.787);
+    padding: .5rem;
+    min-height: 98vh;
+    color: white;
+    padding-bottom: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
- 
+
     @media screen and (max-width:885px){
         display: block;
+        min-height: auto;
+        margin-bottom: 1rem;
     }   
-    @media screen and (max-width:520px){
-        position: absolute;
-        top: 3.5rem;
-        left: .2rem;
-        width: 100%;
-        height: auto;
+    @media screen and (max-width:520px){ 
         background-color: brown;
-        position: fixed;        
     }     
 }
 
@@ -96,6 +79,7 @@
         background:linear-gradient(to right, brown, lightskyblue);
         color: #fff;
         letter-spacing: 2px;
+        text-decoration: none;
 
         @media screen and (max-width:885px){
             width: 20rem;
@@ -239,7 +223,6 @@
 
 .social{
     margin-top: 1rem;
-     
     &__box{
         list-style: none;
         display: flex;
@@ -252,11 +235,15 @@
             color: #fff;
             line-height: 1.5;
             cursor: pointer;
+            text-decoration: none;
         }
     }
     
     &__icon{
         transition: all ease .3s;
+        @media screen and (max-width:520px) {
+            transition: none;
+        }
 
         &:hover{
             transform: translateY(-2rem);

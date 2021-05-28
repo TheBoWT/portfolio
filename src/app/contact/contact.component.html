@@ -1,15 +1,22 @@
 <div class="contact">
-        <!-- <p *ngIf="message" class="success">Thank you for getting in touch, I will reach back to you in a short time.</p>
-        <p *ngIf="!message" class="failed">Oops, something went wrong. Please check my resume for contact information. Thank you</p> -->
+        <div class="confirmationMsg" *ngIf="displayMsg">
+            <span class="confirmationMsg__close" (click)="displayMsg = false;">&times;</span>
+            <p *ngIf="messageSent" class="confirmationMsg__success">Thank you for getting in touch, I will reach back to you in a short time.</p>
+            <p *ngIf="messageFail" class="confirmationMsg__failed">Oops, something went wrong. Please check my resume for contact information. Thank you</p> 
+        </div>
     <form  class="form" [formGroup]="formData" (ngSubmit)="SendEmail()">
         <div class="input-group">
             <input type="text" class="form__input" placeholder="Name" formControlName="name">
-            <label for="" class="form__label">NAME</label>     
-            </div>
-      
-        <input type="text" class="form__input" placeholder="Email" formControlName="email"
-            >
-        <textarea name="" id=""  rows="10" class="form__textarea" formControlName="message" placeholder="Message"></textarea>
-        <button class="form__btn" [disabled]="!formData.valid">{{ sedningStatus }}</button>
+            <label class="form__label">Full Name</label>     
+        </div>
+        
+        <div class="input-group">
+            <input type="text" class="form__input" placeholder="Email" formControlName="email"> 
+            <label  class="form__label">Email</label>     
+        </div>
+        
+        <textarea rows="10" class="form__textarea" formControlName="message" placeholder="Message"></textarea> 
+       
+        <button class="form__btn" [disabled]="!formData.valid">{{ sendingStatus }}</button>
     </form>
 </div> 

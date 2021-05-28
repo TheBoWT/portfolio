@@ -1,3 +1,18 @@
-<div class="container">
-    
+<div class="projects">
+    <div class="project" *ngFor="let project of projects">
+        <img class="project__img" [src]="project.images[0]" alt=""> 
+        <div class="project__overlay" *ngFor="let url of project.urls">
+           <div class="project__techs" >
+               <div *ngFor="let tech of project.techs">{{ tech }}</div>
+           </div>
+            <h1 class="project__title">
+                <a  class="project__name" [routerLink]="['/projects', project.id]">{{ project.name }}</a>
+            </h1>
+            <div class="project__info">
+                <a [href]="url.liveDemo" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                <a [href]="url.gitHub" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+            </div>
+        </div> 
+    </div>
 </div>
+

@@ -3,8 +3,8 @@
     background: rgba(255, 255, 255, 0.801);
     padding: 2rem;
     line-height: 2;
-    min-height: 95vh;
     color: brown;
+    min-height: 98vh;
 
    
     p{
@@ -14,7 +14,8 @@
     
 }
 .skills{
+    width: 50%;
+    text-align: center;
+    margin: 3rem auto;
     list-style: none;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
 }

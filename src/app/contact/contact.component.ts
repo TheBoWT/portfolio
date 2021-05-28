@@ -8,8 +8,10 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent implements OnInit {
-  sedningStatus = 'Send Message';
-  message:boolean;
+  sendingStatus = 'Send Message';
+  messageSent:boolean;
+  messageFail:boolean;
+  displayMsg:boolean;
 
   formData = new FormGroup({
     name: new FormControl('',[Validators.required]),
@@ -22,19 +24,24 @@ export class ContactComponent implements OnInit {
   ngOnInit(): void {
   }
   SendEmail(){    
-    this.sedningStatus = 'Sending...';
+    this.sendingStatus = 'Sending...';
 
     emailjs.send('service_fxdkfxd', 'template_rnumar5' ,this.formData.value, 'user_S5UJtHHRcr7Yj8Jl3gFYf')
-    .then((result: EmailJSResponseStatus)=>{
-      this.sedningStatus= 'Sent!'
+    .then(()=>{
+      this.sendingStatus= 'Sent!'
       this.formData.reset();
-      this.sedningStatus = 'Send';
-      this.message = true;
-    },(error)=>{
-      console.log(error);
-      this.message = false;
+      this.sendingStatus = 'Send';
+      this.messageSent = true;
+      this.displayMsg = true;
+    },()=>{
+      this.messageFail = true;
+      this.displayMsg = true;
+      this.sendingStatus = 'Send';
       
     }) 
+setTimeout(() => {
+  this.displayMsg = false;
+}, 10000);
   }
 
   

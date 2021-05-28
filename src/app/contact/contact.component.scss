@@ -7,9 +7,8 @@
 
     @media screen and (max-width: 885px) {
         display: block;
-        min-height: auto;
         margin-top: 4rem;
-        min-height: 90vh;
+        min-height: auto;
    }
 
     @media screen and (max-width: 520px) {
@@ -17,9 +16,33 @@
         width: 100%;
         margin-bottom: 5rem;
         padding: 0;
-        min-height: auto;
    }
 
+}
+
+.confirmationMsg{
+    background-color: #fff;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.664);
+    border-radius: 5px;
+    transition: all ease .2s;
+    position: relative;
+
+    &__success{
+        color:green;
+    }
+    &__failed{
+        color: red;
+    }
+
+    &__close{
+        position: absolute;
+        top: 5px;
+        right: 7px;
+        cursor: pointer;
+        color: brown;
+    }
 }
 .form{
     padding: 0 1rem;

@@ -1,42 +1,62 @@
+import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
-  styleUrls: ['./nav.component.scss']
+  styleUrls: ['./nav.component.scss'],
+  animations: [
+    trigger('change', [
+      state('closed', style({
+        border: 'thick blue solid',
+        opacity: 0,
+        transform: 'translateX(-40rem)',
+        display: 'none'
+        
+      })),
+      state('opened', style({
+        opacity:1,
+        transform: 'translateX(0)'
+      })),
+      transition('opened<=>closed', [
+        animate(500)
+      ])
+    ])
+  ]
+
 })
+
+
+
 export class NavComponent implements OnInit {
-  opened = true;
-  closed = false;
+  navCollapse = true;
+  state = 'closed';
 
   constructor(private router: Router) {}
 
-  ngOnInit(): void {
-    window.innerWidth > 520? this.opened = false : this.opened = true;
-    
-  }
+ ngOnInit(): void {
+    if(window.innerWidth > 520)
+      this.state = 'opened'; 
+  } 
+
   onNavigate(page){
-    this.navToggler();
-    
     this.router.navigate([`${page}`])
   }
 
   navToggler(){
-    if(window.innerWidth > 520) return;
-    this.opened = !this.opened;
-    this.closed = !this.closed;
-  }
-
-  downloadResume(){
-    
+    this.state == 'opened'? this.state = 'closed': this.state = 'opened';
+    this.navCollapse = !this.navCollapse;
   }
 
   onResize(event){
-    if(event.target.innerWidth > 520)
-      this.opened = false;  
-    else
-      this.opened = true;
-      this.closed = false;      
+    if(event.target.innerWidth < 520){
+      this.navCollapse = true;
+      this.state = 'closed'; 
+    }else{
+      this.state = 'opened';
+    }
+    
+      
   }
 }

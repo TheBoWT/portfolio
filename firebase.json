@@ -1,14 +1,65 @@
 {
-  "functions": {
-    "predeploy": "npm --prefix \"$RESOURCE_DIR\" run build",
-    "source": "functions"
-  },
-  "hosting": {
-    "public": "dist",
+  
+  "hosting": [
+    {
+    "target": "portfolio",
+    "public": "dist/portfolio",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  },
+  {
+    "target": "ecomm",
+    "public": "dist/ecomm",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  },
+  {
+    "target": "quiz",
+    "public": "dist/quizapp",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  },
+  {
+    "target": "weather",
+    "public": "dist/weatherForecast53",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
     ]
   }
+]
 }

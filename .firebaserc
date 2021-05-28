@@ -1,5 +1,23 @@
 {
   "projects": {
     "default": "portfolio-15b3a"
+  },
+  "targets": {
+    "portfolio-15b3a": {
+      "hosting": {
+        "ecomm": [
+          "ecommerce-5b42b"
+        ],
+        "portfolio": [
+          "portfolio-15b3a"
+        ],
+        "quiz": [
+          "quizapp-8a8f1"
+        ],
+        "weather": [
+          "weather-c1c5e"
+        ]
+      }
+    }
   }
 }
