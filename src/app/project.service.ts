@@ -28,12 +28,13 @@ projects:Project[] = [
     images: [
       'assets/shopping1.png',
       'assets/shopping2.png',
-      'assets/shopping3.png'
+      'assets/shopping3.png',
+      'assets/shopping4.png'
     ],
     techs:['Firebase', 'Angular', 'Bootstrap', 'CSS', 'HTML'],
     urls: [
       { 
-        gitHub: 'https://github.com/TheBoWT/5dayforcast.git',
+        gitHub: 'https://github.com/TheBoWT/ecomm.git',
         liveDemo: 'https://ecomm.abdionline.com' 
       }]
   },

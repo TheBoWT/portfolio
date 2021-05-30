@@ -1,6 +1,6 @@
 <div class="projects">
     <div class="project" *ngFor="let project of projects">
-        <img class="project__img" [src]="project.images[0]" alt=""> 
+        <img class="project__img" [src]="project.images[0]"> 
         <div class="project__overlay" *ngFor="let url of project.urls">
            <div class="project__techs" >
                <div *ngFor="let tech of project.techs">{{ tech }}</div>

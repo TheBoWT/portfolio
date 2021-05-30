@@ -1,17 +1,11 @@
-
-    <figure class="gallery"  *ngIf="gallery" >
+    <figure class="gallery">
         <div class="box">
             <img *ngFor="let images of project.images; let i = index" [src]="images" alt="" (mouseenter)="currentImg = i" class="gallery--sub">
         </div>
-        <img [src]="project.images[currentImg]" alt="" (click)="openModel()" class="gallery--main">
+        <img [src]="project.images[currentImg]" alt=""  (click)="onEnlarge(project.images, currentImg)" class="gallery--main">
     </figure>
 
-    <div class="model" *ngIf="enlarged">
-        <span class="close" (click)="openModel()">&times;</span>
-        <i class="fa fa-chevron-left" aria-hidden="true" (click)="preImg()"></i>
-        <img [src]="project.images[currentImg]" alt="" (click)="openModel()">
-        <i class="fa fa-chevron-right" aria-hidden="true" (click)="nextImg()"></i>
-    </div>
+ 
 
     <div class="app_desc">
         {{ project.text }}

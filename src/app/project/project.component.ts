@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
+import { ImgOverlayComponent } from '../img-overlay/img-overlay.component';
 import { ProjectService } from '../project.service';
 
 @Component({
@@ -8,41 +10,27 @@ import { ProjectService } from '../project.service';
   styleUrls: ['./project.component.scss']
 })
 export class ProjectComponent implements OnInit {
-project;
+project:any;
 currentImg = 0;
-enlarged = true;
-gallery = false;
-  constructor(private projectService: ProjectService, private route: ActivatedRoute) { }
+  constructor(
+    private projectService: ProjectService, 
+    private route: ActivatedRoute, 
+    private dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.enlarged = false;
-    this.gallery = true;
-    
     const id = +this.route.snapshot.params['id'];
     this.project = this.projectService.getProject(id);
-    
   }
 
-  openModel(){
-    this.enlarged = !this.enlarged;
-    this.gallery = !this.gallery;
+  onEnlarge(urls, i){
+    if(window.innerWidth < 520) return;
+    this.dialog.open(
+      ImgOverlayComponent,{
+        height: '100vh',
+        width: '100vw',
+        data: { imgUrls: urls, imgIndex: i}
+      });
   }
-
-  preImg(){
-     console.log(this.currentImg, ' ', this.project.images.length - 1);
-    
-    if(this.currentImg <= this.project.images.length - 1)
-      this.currentImg--;
-    if(this.currentImg == 0)
-      return;
-  }
-  nextImg(){ 
-    if(this.currentImg >= this.project.images.length - 1)
-      return
-    else
-      this.currentImg++;
-  }
-
 
   
 }
